@@ -1,0 +1,50 @@
+let rectX, rectY;
+let circleX, circleY;
+let triX, triY;
+let speed = 5;
+
+function setup() {
+    createCanvas(500, 500);
+    rectX = width / 2;
+    rectY = height / 2;
+    circleX = width / 4;
+    circleY = height / 4;
+    triX = 3 * width / 4;
+    triY = 3 * height / 4;
+}
+
+function draw() {
+    background(260);
+
+    // Move red rectangle based on keyboard input
+    if (keyIsDown(87)) rectY -= speed; // W key
+    if (keyIsDown(83)) rectY += speed; // S key
+    if (keyIsDown(65)) rectX -= speed; // A key
+    if (keyIsDown(68)) rectX += speed; // D key
+
+    // Move green circle based on keyboard input
+    if (keyIsDown(73)) circleY -= speed; // I key
+    if (keyIsDown(75)) circleY += speed; // K key
+    if (keyIsDown(74)) circleX -= speed; // J key
+    if (keyIsDown(76)) circleX += speed; // L key
+
+    // Randomly move blue triangle
+    if (random(1) < 0.02) {
+        triX += random(-5, 5);
+        triY += random(-5, 5);
+
+        // Ensure triangle stays within the canvas boundaries
+        triX = constrain(triX, 0, width - 30);
+        triY = constrain(triY, 0, height - 50);
+    }
+
+    // Draw shapes
+    fill("red");
+    rect(rectX, rectY, 50, 50);
+
+    fill("green");
+    circle(circleX, circleY, 50);
+
+    fill("blue");
+    triangle(triX, triY, triX + 30, triY + 50, triX - 30, triY + 50);
+}
