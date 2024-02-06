@@ -1,0 +1,58 @@
+let rect1X, rect1Y, rect2X, rect2Y;
+let rect1Speed = 2;
+let rect2Speed = 5;
+
+function setup() {
+    createCanvas(500, 500);
+    rect1X = random(width - 150);
+    rect1Y = random(height - 30);
+    rect2X = 135;
+    rect2Y = 80;
+}
+
+function draw() {
+    background(260);
+    
+    // CheeseSticks title in the top left corner
+    fill("black");
+    textSize(20);
+    text("CheeseSticks", 20, 30);
+
+    // random move 1
+    if (random(1) < 0.02) {
+        rect1X += random(-5, 5);
+        rect1Y += random(-5, 5);
+    }
+
+    //Movement
+    if (keyIsDown(87)) rect2Y -= rect2Speed; // W key
+    if (keyIsDown(83)) rect2Y += rect2Speed; // S key
+    if (keyIsDown(65)) rect2X -= rect2Speed; // A key
+    if (keyIsDown(68)) rect2X += rect2Speed; // D key
+
+  
+    // Black circle
+    fill("black");
+    circle(250, 150, 300);
+  
+    // Sticks
+    fill("gold");
+    rect(rect1X, rect1Y, 150, 30); 
+    rect(rect2X, rect2Y, 150, 30); 
+    rect(145, 130, 150, 30); 
+    rect(135, 30, 100, 30); 
+
+    // Sauce
+    fill("red");
+    circle(350, 150, 50);
+
+    // Sauce
+    fill("white");
+    circle(350, 95, 50);
+
+    // Your name in the lower right corner
+    fill("black");
+    textSize(15);
+    text("Kenzie", width - 130, height - 20);
+
+}
