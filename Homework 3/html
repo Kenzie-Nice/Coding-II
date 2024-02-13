@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <main>
+      <!-- Add the images here with adjusted width and height -->
+      <img id="myImage" src="images/20231107_090648.jpg" alt="My Image" width="80" height="80">
+      <img id="Birb" src="images/396723542_7123720314359447_9118186949828303521_n.jpg" alt="Birb" width="80" height="80">
+      
+      <img id="AI" src="images/409832b8-003c-4da2-84f8-16d94f1be3d9.jpg" alt="AI" width="80" height="80">
+      
+      
+    </main>
+    <script src="sketch.js"></script>
+  </body>  
+</html>
