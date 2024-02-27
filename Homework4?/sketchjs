@@ -1,0 +1,18 @@
+class MyImage {
+  constructor(myFilePath, x, y, w, h) {
+    this.myFilePath = myFilePath;
+    this.myImageObject = loadImage(this.myFilePath);
+    this.x = x;
+    this.y = y;
+    this.width = w;
+    this.height = h;
+  }
+
+  updateX(newX) {
+    this.x = newX;
+  }
+
+  draw() {
+    image(this.myImageObject, this.x, this.y, this.width, this.height);
+  }
+}
