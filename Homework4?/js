@@ -1,0 +1,87 @@
+let myImageArray = [];
+let imageX = 100;
+let i = 0;
+let myFood;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Create character images
+  for (let n = 1; n <= 10; n++) {
+    let img = loadImage("images/Idle (" + n + ").png");
+    let myImage = new MyImage(img, imageX, 100, 640, 472);
+    myImageArray.push(myImage);
+  }
+
+  // Create food object
+  myFood = new Food();
+
+  // Set interval for animation
+  setInterval(updateImage, 50);
+}
+
+function draw() {
+  background(220);
+
+  // Draw character and food
+  myImageArray[i].draw();
+  myFood.display();
+
+  // Handle character movement
+  if (keyIsPressed) {
+    if (key === "a") {
+      imageX -= 1;
+    }
+    if (key === "d") {
+      imageX += 1;
+    }
+  }
+
+  // Update character positions
+  myImageArray.forEach(myImage => {
+    myImage.updateX(imageX);
+  });
+
+  // Display timer
+  let timerValue = floor(frameCount / 20);
+  if (timerValue >= 10) {
+    text("0:" + timerValue, width / 10, height / 10);
+  } else {
+    text('0:0' + timerValue, width / 10, height / 10);
+  }
+}
+
+function updateImage() {
+  i = (i + 1) % myImageArray.length;
+}
+
+class MyImage {
+  constructor(img, x, y, width, height) {
+    this.img = img;
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
+
+  draw() {
+    image(this.img, this.x, this.y);
+  }
+
+  updateX(newX) {
+    this.x = newX;
+  }
+}
+
+class Food {
+  constructor() {
+    this.x = random(width);
+    this.y = random(height);
+    this.size = 20;
+  }
+
+  display() {
+    fill(255, 0, 0);
+    ellipse(this.x, this.y, this.size, this.size);
+  }
+}
