@@ -6,7 +6,7 @@ let cylinderRotation = 0;
 let textureImg;
 
 function preload() {
-  // Load the texture image
+
   textureImg = loadImage('sticks.jpg');
 }
 
@@ -17,14 +17,13 @@ function setup() {
 function draw() {
   background(220);
 
-  // Set up lights
+
   ambientLight(100);
   pointLight(255, 255, 255, -200, -200, 200);
 
-  // Apply texture
   texture(textureImg);
 
-  // Draw a rectangle (box) with texture
+  // stick... that are actually cubes? cheese curd?
   push();
   translate(-100, 0, 0);
   rotateX(boxRotation);
@@ -33,7 +32,7 @@ function draw() {
   box(50);
   pop();
 
-  // Draw a rectangle (box) with texture
+  
   push();
   translate(100, 0, 0);
   rotateX(boxRotation);
@@ -42,7 +41,7 @@ function draw() {
   box(50);
   pop();
 
-  // Draw a rectangle (box) with texture
+  
   push();
   translate(-200, -100, 0);
   rotateX(boxRotation);
@@ -51,10 +50,10 @@ function draw() {
   box(50);
   pop();
 
-  // Apply texture
+
   texture(textureImg);
 
-  // Draw a sphere with texture
+  //sauces? of sorts
   push();
   translate(200, -100, 0);
   rotateX(sphereRotation);
@@ -63,7 +62,7 @@ function draw() {
   sphere(50);
   pop();
 
-  // Draw a sphere with texture
+ 
   push();
   translate(0, 100, 0);
   rotateX(sphereRotation);
@@ -72,7 +71,7 @@ function draw() {
   sphere(50);
   pop();
 
-  // Update rotations
+ 
   boxRotation += 0.01;
   sphereRotation += 0.02;
 }
